@@ -10,17 +10,19 @@
 
 <body>
  <h1>Shopping List</h1>
- <h2>Items To Buy</h2>
+ 
 	<div ng-controller='ToBuyShoppingController as showList'>
+    <h2 ng-if="showList.itemsToBuy.length > 0">Items To Buy</h2>
     	<ol>
         	<li ng-repeat='item in showList.itemsToBuy'>
             	{{ item.quantity }} bags of {{ item.name }}
-                <button ng-click='showList.buyItem($index);'>Buy</button>
+                <button ng-click='showList.buyItem($index);'>Bought</button>
             </li>
         </ol>
     </div>
-<h2>Items Bought</h2>
+
 	<div ng-controller='AlreadyBoughtShoppingController as showBoughtList'>
+    <h2>Items Bought</h2>
     	<ol>
         	<li ng-repeat='boughtItem in showBoughtList.itemsBought'>
             {{ boughtItem.quantity }} bags of {{ boughtItem.name }}
